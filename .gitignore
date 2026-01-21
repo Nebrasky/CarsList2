@@ -1,0 +1,22 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.obj
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.dll
+
+# Executables
+*.exe
+
+.vs/
+bin/
+obj/
+
+*.user
+
+
