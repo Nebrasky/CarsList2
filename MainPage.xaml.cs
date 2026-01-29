@@ -8,6 +8,7 @@ namespace CarLists
         {
             this.appSettings = appSettings;
             InitializeComponent();
+            BindingContext = this.appSettings;
         }
     }
 }
