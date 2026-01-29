@@ -10,7 +10,7 @@ namespace CarLists.Converters
         {
             if (value is RepositorySettings repository)
             {
-                return repository.MinPrice + repository.MaxPrice / 2m;
+                return (repository.MinPrice + repository.MaxPrice) / 2m;
             }
 
             return 0m;
