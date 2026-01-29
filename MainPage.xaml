@@ -28,7 +28,9 @@
                                FontAttributes="Bold" />
                         <Label Grid.Column="1"
                                Text="Year"
-                               FontAttributes="Bold" />
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               HorizontalTextAlignment="End" />
                         <Label Grid.Column="2"
                                Text="MinPrice"
                                FontAttributes="Bold"
@@ -54,6 +56,8 @@
                             <Label Text="{Binding Model}" />
                             <Label Grid.Column="1"
                                    Text="{Binding Year}"
+                                   HorizontalOptions="End"
+                                   HorizontalTextAlignment="End"
                                    TextColor="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
                             <Label Grid.Column="2"
                                    Text="{Binding MinPrice, StringFormat='${0:N0}'}"
