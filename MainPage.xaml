@@ -31,7 +31,8 @@
                                FontAttributes="Bold" />
                         <Label Grid.Column="2"
                                Text="MinPrice"
-                               FontAttributes="Bold" />
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="End" />
                         <Label Grid.Column="3"
                                Text="MaxPrice"
                                FontAttributes="Bold"
@@ -56,6 +57,7 @@
                                    TextColor="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
                             <Label Grid.Column="2"
                                    Text="{Binding MinPrice, StringFormat='${0:N0}'}"
+                                   HorizontalTextAlignment="End"
                                    TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
                             <Label Grid.Column="3"
                                    Text="{Binding MaxPrice, StringFormat='${0:N0}'}"
