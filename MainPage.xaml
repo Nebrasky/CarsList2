@@ -11,33 +11,42 @@
 
             <CollectionView ItemsSource="{Binding Repositories}"
                             SelectionMode="None">
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="2*,Auto,Auto,Auto"
+                          ColumnSpacing="12"
+                          Padding="12,8"
+                          BackgroundColor="{AppThemeBinding Light=#F2F2F2, Dark=#1E1E1E}">
+                        <Label Text="Model"
+                               FontAttributes="Bold" />
+                        <Label Grid.Column="1"
+                               Text="Year"
+                               FontAttributes="Bold" />
+                        <Label Grid.Column="2"
+                               Text="MinPrice"
+                               FontAttributes="Bold" />
+                        <Label Grid.Column="3"
+                               Text="MaxPrice"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+                </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="16"
-                               CornerRadius="12"
-                               HasShadow="False"
-                               BorderColor="Red">
-                            <Grid RowDefinitions="Auto,Auto"
-                                  ColumnDefinitions="*,Auto">
-                                <Label Text="{Binding Model}"
-                                       FontSize="18"
-                                       FontAttributes="Bold" />
-                                <Label Grid.Column="1"
-                                       Text="{Binding Year}"
-                                       FontSize="16"
-                                       TextColor="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
-                                <Label Grid.Row="1"
-                                       Text="{Binding MinPrice, StringFormat='Min: ${0:N0}'}"
-                                       FontSize="14"
-                                       TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
-                                <Label Grid.Row="1"
-                                       Grid.Column="1"
-                                       Text="{Binding MaxPrice, StringFormat='Max: ${0:N0}'}"
-                                       FontSize="14"
-                                       HorizontalTextAlignment="End"
-                                       TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
-                            </Grid>
-                        </Frame>
+                        <Grid ColumnDefinitions="2*,Auto,Auto,Auto"
+                              ColumnSpacing="12"
+                              Padding="12,10">
+                            <Label Text="{Binding Model}" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Year}"
+                                   TextColor="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
+                            <Label Grid.Column="2"
+                                   Text="{Binding MinPrice, StringFormat='${0:N0}'}"
+                                   TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
+                            <Label Grid.Column="3"
+                                   Text="{Binding MaxPrice, StringFormat='${0:N0}'}"
+                                   HorizontalTextAlignment="End"
+                                   TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
