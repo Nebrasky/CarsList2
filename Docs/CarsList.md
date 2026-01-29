@@ -16,3 +16,11 @@ JSON format (root object contains `Repositories` array):
   ]
 }
 '''
+
+## Unit tests (IMPORTANT)
+
+- All unit tests MUST be created in a dedicated test project, not inside the production app project.
+- Test project location: `Tests/CarLists.Tests/`
+- Framework: xUnit
+- Do NOT add xUnit packages to the production project.
+- Do NOT create any `Program.cs` / entry point in test code.
