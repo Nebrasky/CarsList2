@@ -10,10 +10,10 @@ namespace CarLists.Converters
         {
             if (value is RepositorySettings repository)
             {
-                return repository.MinPrice+1 + repository.MaxPrice / 2m;
+                return (repository.MinPrice + repository.MaxPrice) / 2m;
             }
 
-            return 0m;
+            return Binding.DoNothing;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
