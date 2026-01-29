@@ -15,11 +15,12 @@ namespace CarLists
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+           
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             var appSettings = builder.Configuration.GetSection("AppSettings").Get<AppSettings>() ?? new AppSettings();
             builder.Services.AddSingleton(appSettings);
+            builder.Services.AddSingleton<MainPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -57,8 +57,8 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-
-		<None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Remove="appsettings.json" />
+		<Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -70,6 +70,12 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="AppSettings.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Compile>
 	</ItemGroup>
 
 </Project>
