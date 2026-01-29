@@ -4,8 +4,43 @@
              x:Class="CarLists.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
-            
+        <VerticalStackLayout Padding="30,20" Spacing="20">
+            <Label Text="Cars List"
+                   FontSize="24"
+                   FontAttributes="Bold" />
+
+            <CollectionView ItemsSource="{Binding Repositories}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="16"
+                               CornerRadius="12"
+                               HasShadow="False"
+                               BorderColor="Red">
+                            <Grid RowDefinitions="Auto,Auto"
+                                  ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Model}"
+                                       FontSize="18"
+                                       FontAttributes="Bold" />
+                                <Label Grid.Column="1"
+                                       Text="{Binding Year}"
+                                       FontSize="16"
+                                       TextColor="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding MinPrice, StringFormat='Min: ${0:N0}'}"
+                                       FontSize="14"
+                                       TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding MaxPrice, StringFormat='Max: ${0:N0}'}"
+                                       FontSize="14"
+                                       HorizontalTextAlignment="End"
+                                       TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 
