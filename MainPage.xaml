@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:CarLists.Converters"
              x:Class="CarLists.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:AveragePriceConverter x:Key="AveragePriceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Padding="30,20" Spacing="20">
@@ -12,7 +19,7 @@
             <CollectionView ItemsSource="{Binding Repositories}"
                             SelectionMode="None">
                 <CollectionView.Header>
-                    <Grid ColumnDefinitions="2*,Auto,Auto,Auto"
+                    <Grid ColumnDefinitions="2*,Auto,Auto,Auto,Auto"
                           ColumnSpacing="12"
                           Padding="12,8"
                           BackgroundColor="{AppThemeBinding Light=#F2F2F2, Dark=#1E1E1E}">
@@ -28,11 +35,15 @@
                                Text="MaxPrice"
                                FontAttributes="Bold"
                                HorizontalTextAlignment="End" />
+                        <Label Grid.Column="4"
+                               Text="AveragePrice"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="End" />
                     </Grid>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid ColumnDefinitions="2*,Auto,Auto,Auto"
+                        <Grid ColumnDefinitions="2*,Auto,Auto,Auto,Auto"
                               ColumnSpacing="12"
                               Padding="12,10">
                             <Label Text="{Binding Model}" />
@@ -44,6 +55,10 @@
                                    TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
                             <Label Grid.Column="3"
                                    Text="{Binding MaxPrice, StringFormat='${0:N0}'}"
+                                   HorizontalTextAlignment="End"
+                                   TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
+                            <Label Grid.Column="4"
+                                   Text="{Binding ., Converter={StaticResource AveragePriceConverter}, StringFormat='${0:N0}'}"
                                    HorizontalTextAlignment="End"
                                    TextColor="{AppThemeBinding Light=#666666, Dark=#B0B0B0}" />
                         </Grid>
